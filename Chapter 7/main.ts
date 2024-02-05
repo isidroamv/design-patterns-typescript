@@ -1,6 +1,5 @@
 
 
-// Home Theater example for the Facade pattern
 import {
     Amplifier,
     Tunner,
@@ -10,7 +9,9 @@ import {
     TheaterLights,
     HomeTheaterFacade
 } from "./Facade";
+import { MallardDuck, WildTurkey, TurkeyAdapter } from "./Adapter";
 
+// Facade example
 const homeTheater = new HomeTheaterFacade(
     new Amplifier(),
     new Tunner(),
@@ -23,4 +24,18 @@ homeTheater.watchMovie("Rush");
 homeTheater.endMovie();
 
 
+console.log();
+console.log("---------------------------------");
+console.log();
+
+// Adapter example
+const duck = new MallardDuck();
+const turkey = new WildTurkey();
+const turkeyAdapter = new TurkeyAdapter(turkey);
+
+duck.fly();
+duck.quack();
+
+turkeyAdapter.fly();
+turkeyAdapter.quack();
 
